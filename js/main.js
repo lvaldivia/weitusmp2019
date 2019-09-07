@@ -6,6 +6,7 @@ window.onload = function(){
 		}),
 		background,
 		player,
+		elapsed = 0,
 		score_bg,
 		floor;
 
@@ -15,7 +16,7 @@ window.onload = function(){
 		game.scale.pageAlignVertically = true;
 
 		game.load.image("background","img/background.png");
-		game.load.image("candy","img/candy.png");
+		game.load.spritesheet("candy","img/candy.png",82,98);
 		game.load.image("floor","img/floor.png");
 		game.load.image("gameover","img/gameover.png");
 		game.load.spritesheet("monster-idle","img/monster-idle.png",103,131);
@@ -40,7 +41,7 @@ window.onload = function(){
 		player.play('idle');
 		player.anchor.setTo(0.5);
 		game.physics.arcade.enable(player);
-
+		player.body.collideWorldBounds = true;
 		floor.body.immovable = true;
 		floor.body.allowGravity = false;
 		floor.body.setSize(floor.width,floor.height,0,80);
@@ -57,6 +58,15 @@ window.onload = function(){
 		if(keys.right.isDown){
 			player.body.velocity.x = 200;		
 			player.scale.setTo(1);	
+		}
+		elapsed+=game.time.elapsed;
+		if(elapsed>=3000){
+			elapsed = 0;
+			var candy = game.add.sprite(0,0,'candy');
+			candy.anchor.setTo(0.5);
+			candy.frame = game.rnd.integerInRange(1,5);
+			candy.x = game.rnd.realInRange(candy.width*0.5,game.width - (candy.width*0.5));
+
 		}
 	}
 	

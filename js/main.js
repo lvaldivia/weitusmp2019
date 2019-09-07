@@ -1,9 +1,12 @@
 window.onload = function(){
 	var game = new Phaser.Game(640,960,Phaser.AUTO,'',{
-		preload:preload,
-		create:create,
-		update:update
-	});
+			preload:preload,
+			create:create,
+			update:update
+		}),
+		background,
+		score_bg,
+		floor;
 
 	function preload(){
 		game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -20,7 +23,11 @@ window.onload = function(){
 	}
 
 	function create(){
-		var background = game.add.sprite(0,0,'background');
+		background = game.add.sprite(0,0,'background');
+		floor = game.add.sprite(0,0,'floor');
+		floor.y = game.height - floor.height;
+		score_bg = game.add.sprite(0,0,'score-bg');
+
 	}
 
 	function update(){

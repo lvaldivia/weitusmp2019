@@ -6,6 +6,8 @@ window.onload = function(){
 	});
 
 	function preload(){
+		
+
 		game.load.image("background","img/background.png");
 		game.load.image("candy","img/candy.png");
 		game.load.image("floor","img/floor.png");
@@ -16,7 +18,7 @@ window.onload = function(){
 	}
 
 	function create(){
-
+		var background = game.add.sprite(0,0,'background');
 	}
 
 	function update(){

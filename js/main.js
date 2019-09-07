@@ -1,3 +1,3 @@
 window.onload = function(){
-	console.log("comenzamos");
+	console.log("agregamos assets");
 }

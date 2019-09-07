@@ -39,10 +39,14 @@ window.onload = function(){
 				[0,1,2,3,4,5,6,7,8,9,10,11,12],10,true);
 		player.play('idle');
 		game.physics.arcade.enable(player);
+
+		floor.body.immovable = true;
+		floor.body.allowGravity = false;
+		floor.body.setSize(floor.width,floor.height,0,80);
 	}
 
 	function update(){
-
+		game.physics.arcade.collide(player,floor);
 	}
 	
 }

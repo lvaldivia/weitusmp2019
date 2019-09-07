@@ -5,6 +5,7 @@ window.onload = function(){
 			update:update
 		}),
 		background,
+		player,
 		score_bg,
 		floor;
 
@@ -23,10 +24,11 @@ window.onload = function(){
 	}
 
 	function create(){
-		background = game.add.sprite(0,0,'background');
+		
 		floor = game.add.sprite(0,0,'floor');
 		floor.y = game.height - floor.height;
 		score_bg = game.add.sprite(0,0,'score-bg');
+		background = game.add.sprite(0,0,'background');
 
 	}
 

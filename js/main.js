@@ -38,15 +38,26 @@ window.onload = function(){
 		player.animations.add('idle',
 				[0,1,2,3,4,5,6,7,8,9,10,11,12],10,true);
 		player.play('idle');
+		player.anchor.setTo(0.5);
 		game.physics.arcade.enable(player);
 
 		floor.body.immovable = true;
 		floor.body.allowGravity = false;
 		floor.body.setSize(floor.width,floor.height,0,80);
+		keys = game.input.keyboard.createCursorKeys();
 	}
 
 	function update(){
 		game.physics.arcade.collide(player,floor);
+		player.body.velocity.x = 0;
+		if(keys.left.isDown){
+			player.body.velocity.x = -200;
+			player.scale.setTo(-1,1);
+		}
+		if(keys.right.isDown){
+			player.body.velocity.x = 200;		
+			player.scale.setTo(1);	
+		}
 	}
 	
 }

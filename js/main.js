@@ -6,7 +6,9 @@ window.onload = function(){
 	});
 
 	function preload(){
-		
+		game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+		game.scale.pageAlignHorizontally = true;
+		game.scale.pageAlignVertically = true;
 
 		game.load.image("background","img/background.png");
 		game.load.image("candy","img/candy.png");

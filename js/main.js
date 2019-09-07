@@ -18,7 +18,7 @@ window.onload = function(){
 		game.load.image("candy","img/candy.png");
 		game.load.image("floor","img/floor.png");
 		game.load.image("gameover","img/gameover.png");
-		game.load.image("monster-idle","img/monster-idle.png");
+		game.load.spritesheet("monster-idle","img/monster-idle.png",103,131);
 		game.load.image("score-bg","img/score-bg.png");
 		game.load.image("title","img/title.png");
 	}
@@ -30,6 +30,10 @@ window.onload = function(){
 		score_bg = game.add.sprite(0,0,'score-bg');
 		player = game.add.sprite(0,0,'monster-idle');
 		player.x = game.world.centerX;
+
+		player.animations.add('idle',
+				[0,1,2,3,4,5,6,7,8,9,10,11,12],10,true);
+		player.play('idle');
 	}
 
 	function update(){

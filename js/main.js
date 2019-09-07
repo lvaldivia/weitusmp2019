@@ -9,6 +9,7 @@ window.onload = function(){
 		elapsed = 0,
 		candies,
 		score_bg,
+		score = 0,
 		floor;
 
 	function preload(){
@@ -48,6 +49,9 @@ window.onload = function(){
 		floor.body.setSize(floor.width,floor.height,0,80);
 		candies = game.add.group();
 		keys = game.input.keyboard.createCursorKeys();
+		text = game.add.text(10,20,'Score 0');
+
+		text.fill = "#FFFFFF";
 	}
 
 	function update(){
@@ -81,6 +85,9 @@ window.onload = function(){
 
 	function killCandy(sprite1,sprite2){
 		console.log("collide .v");
+		sprite2.kill();
+		score++;
+		text.text = "Score "+score;
 	}
 	
 }

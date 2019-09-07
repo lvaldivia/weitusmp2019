@@ -75,8 +75,12 @@ window.onload = function(){
 			});
 			candies.add(candy);
 			game.physics.arcade.enable(candy);
-
 		}
+		game.physics.arcade.overlap(player,candies,killCandy,null);
+	}
+
+	function killCandy(sprite1,sprite2){
+		console.log("collide .v");
 	}
 	
 }

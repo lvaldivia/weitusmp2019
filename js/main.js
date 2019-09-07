@@ -7,6 +7,7 @@ window.onload = function(){
 		background,
 		player,
 		elapsed = 0,
+		candies,
 		score_bg,
 		floor;
 
@@ -45,6 +46,7 @@ window.onload = function(){
 		floor.body.immovable = true;
 		floor.body.allowGravity = false;
 		floor.body.setSize(floor.width,floor.height,0,80);
+		candies = game.add.group();
 		keys = game.input.keyboard.createCursorKeys();
 	}
 
@@ -66,6 +68,13 @@ window.onload = function(){
 			candy.anchor.setTo(0.5);
 			candy.frame = game.rnd.integerInRange(1,5);
 			candy.x = game.rnd.realInRange(candy.width*0.5,game.width - (candy.width*0.5));
+			candy.checkWorldBounds = true;
+			candy.onOutOfBoundsKill = true;
+			candy.events.onOutOfBounds.add(function(){
+				console.log("MORI GAAAA");
+			});
+			candies.add(candy);
+			game.physics.arcade.enable(candy);
 
 		}
 	}

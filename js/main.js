@@ -24,6 +24,8 @@ window.onload = function(){
 	}
 
 	function create(){
+		game.physics.startSystem(Phaser.Physics.ARCADE);
+		game.physics.arcade.gravity.y = 800;
 		background = game.add.sprite(0,0,'background');
 		floor = game.add.sprite(0,0,'floor');
 		floor.y = game.height - floor.height;
@@ -31,9 +33,12 @@ window.onload = function(){
 		player = game.add.sprite(0,0,'monster-idle');
 		player.x = game.world.centerX;
 
+		game.physics.arcade.enable(floor);
+
 		player.animations.add('idle',
 				[0,1,2,3,4,5,6,7,8,9,10,11,12],10,true);
 		player.play('idle');
+		game.physics.arcade.enable(player);
 	}
 
 	function update(){
